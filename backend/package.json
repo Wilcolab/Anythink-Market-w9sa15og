@@ -4,11 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --watch db.json --port 3001 --host 0.0.0.0"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js",
+    "client": "cd ../frontend && npm start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^1.0.0-beta.3"
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "json-server": "^0.17.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
+
